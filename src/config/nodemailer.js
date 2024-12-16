@@ -32,4 +32,19 @@ const sendMailToUser = (userMail, token) => {
     });
 };
 
-export default sendMailToUser
+const sendMailToRecoveryPassword = async(userMail,token)=>{
+    let info = await transporter.sendMail({
+    from: 'admin@vet.com',
+    to: userMail,
+    subject: "Correo para reestablecer tu contraseña",
+    html: `
+    <h1>Sistema de gestión de salud</h1>
+    <hr>
+    <a href=${process.env.URL_BACKEND}recuperar-password/${token}>Clic para reestablecer tu contraseña</a>
+    <hr>
+    <footer>Grandote te da la Bienvenida!</footer>
+    `
+    });
+    console.log("Mensaje enviado satisfactoriamente: ", info.messageId);
+}
+export {sendMailToUser,sendMailToRecoveryPassword} 

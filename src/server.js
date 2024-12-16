@@ -2,7 +2,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import routerPaciente from './routers/paciente_routers'
+import routerPaciente from './routers/paciente_routers.js'
 
 //Inicializaciones
 const app = express()
